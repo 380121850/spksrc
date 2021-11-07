@@ -202,12 +202,7 @@ endif
 
 # Less than DSM 6.0
 else
-ifneq ($(strip $(SPK_COMMANDS) $(SPK_USR_LOCAL_LINKS)),)
-	@echo "# List of commands to create links for" >> $@
-	@echo "SPK_COMMANDS=\"${SPK_COMMANDS}\"" >> $@
-	@echo "SPK_USR_LOCAL_LINKS=\"${SPK_USR_LOCAL_LINKS}\"" >> $@
-	@cat $(SPKSRC_MK)spksrc.service.create_links >> $@
-endif
+
 endif
 
 
