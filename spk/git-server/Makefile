@@ -45,9 +45,10 @@ git_server_extra_install:
 	install -m 755 -d $(STAGING_DIR)/share/gitweb
 	install -m 644 src/gitweb.conf $(STAGING_DIR)/etc/
 	install -m 644 src/gitweb_config.perl $(STAGING_DIR)/etc/
-	git clone https://github.com/kogakure/gitweb-theme.git $(STAGING_DIR)/share/gitweb/static
+	#git clone https://github.com/kogakure/gitweb-theme.git $(STAGING_DIR)/share/gitweb/static
+	#git clone git@github.com:kogakure/gitweb-theme.git $(STAGING_DIR)/share/gitweb/static
 	rm -rf $(STAGING_DIR)/share/gitweb/static/.git*
-	git clone https://github.com/sitaramc/gitolite.git $(STAGING_DIR)/share/gitolite
+	#git clone https://github.com/sitaramc/gitolite.git $(STAGING_DIR)/share/gitolite
 	rm -rf $(STAGING_DIR)/share/gitolite/.git*
 	install -m 755 -d $(STAGING_DIR)/app
 	install -m 644 src/app/config $(STAGING_DIR)/app/config

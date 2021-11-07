@@ -15,7 +15,7 @@ KernelConfig = $(WORK_DIR)/../modify/linux/synoconfigs/hi3535
 KernelTarget = uImage
 KernelImagePath = $(KernelDir)/arch/arm/boot/$(KernelTarget)
 SynoKERNEL_CFG =syno_kernel
-KernelTargetOutPath = $(WORK_DIR)/../../../../DSM_NVR216/modify/rd/
+KernelTargetOutPath = $(WORK_DIR)/../../../../DSM_NVR216/modify/
 KO_TARGET_DIR=$(WORK_DIR)/../../../../DSM_NVR216/modify/modules/
 KernelModifyDIR = $(WORK_DIR)/../modify/linux/
 ##########################################################################################
