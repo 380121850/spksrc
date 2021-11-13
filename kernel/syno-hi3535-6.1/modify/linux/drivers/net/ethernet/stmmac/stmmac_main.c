@@ -2341,7 +2341,7 @@ static int stmmac_probe(struct net_device *dev)
 	priv->pause = pause;
 	netif_napi_add(dev, &priv->napi, stmmac_poll, 64);
 
-#ifdef MY_ABC_HERE
+#ifndef MY_ABC_HERE
 	if (CONFIG_SYNO_MAC_IF > priv->id) {
 		pMac = grgbLanMac[priv->id];
 
@@ -2359,6 +2359,8 @@ static int stmmac_probe(struct net_device *dev)
 				     dev->dev_addr, 0);
 #endif
 
+    printk("dev_addr=%2X:%2X:%2X:%2X:%2X:%2X \n",dev->dev_addr[0],dev->dev_addr[1],dev->dev_addr[2],
+                                                 dev->dev_addr[3],dev->dev_addr[4],dev->dev_addr[5]);
 	if (!is_valid_ether_addr(dev->dev_addr))
 		pr_warning("\tno valid MAC address for MAC %d;"
 			   "please, use ifconfig or nwhwconfig!\n", priv->id);
@@ -2511,6 +2513,7 @@ static int stmmac_associate_phy(struct device *dev, void *data)
 		priv->phy_interface = phy_mode;
 
 	priv->phy_reset = plat_dat->phy_reset;
+	printk("plat_dat->phy_reset = %p \n",plat_dat->phy_reset);
 
 	pr_info("%s: phy %d mode=%d\n",
 		__func__, priv->id, priv->phy_interface);
