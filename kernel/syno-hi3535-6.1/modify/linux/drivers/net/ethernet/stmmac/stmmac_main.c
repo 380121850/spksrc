@@ -1,6 +1,10 @@
 #ifndef MY_ABC_HERE
 #define MY_ABC_HERE
 #endif
+
+#ifndef CONFIG_HI3535_SDK_2050
+#define CONFIG_HI3535_SDK_2050
+#endif
 /*******************************************************************************
   This is the driver for the ST MAC 10/100/1000 on-chip Ethernet controllers.
   ST Ethernet IPs are built around a Synopsys IP Core.
