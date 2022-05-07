@@ -2323,14 +2323,6 @@ static int stmmac_probe(struct net_device *dev)
 		//return -ENODEV;
 	}
 
-	if( dev && dev->name )
-	    printk("net dev name = %s \n",dev->name);
-
-	
-	if(g_netif_count == 1 ) {
-		
-		return 0;
-		}
 #endif
 
 	ether_setup(dev);
@@ -2786,7 +2778,7 @@ static int stmmac_dvr_probe(struct platform_device *pdev)
 		goto out_release_region;
 	}
 
-	for (i = 0; i < TNK_NUM_GMACS; i++) {
+	for (i = 1; i < TNK_NUM_GMACS; i++) {
 		struct net_device *ndev = NULL;
 		struct stmmac_priv *priv = NULL;
 		struct plat_stmmacenet_data *plat_dat;
@@ -2879,7 +2871,7 @@ ndev_alloc_fail:
 	if (ret)
 		goto out_netdev_err;
 
-	for (i = 0; i < TNK_NUM_GMACS; i++) {
+	for (i = 1; i < TNK_NUM_GMACS; i++) {
 		struct net_device *ndev = stmmac_device_list[i];
 		struct stmmac_priv *priv = netdev_priv(ndev);
 
@@ -2964,7 +2956,7 @@ out_tnk_init:
 	tnk_shutdown();
 
 out_netdev_err:
-	for (i = 0; i < TNK_NUM_GMACS; i++) {
+	for (i = 1; i < TNK_NUM_GMACS; i++) {
 		struct net_device *ndev = stmmac_device_list[i];
 		if (ndev) {
 			struct stmmac_priv *priv;
